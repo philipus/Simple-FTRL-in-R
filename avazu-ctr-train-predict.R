@@ -74,7 +74,7 @@ subm_con <- file("./data/subm.csv","w")
 namesTest <- readLines(test_con, n = 1, warn = FALSE)
 nameVecTest <- (strsplit(namesTest, ","))
 
-writeLines("id, click", subm_con)
+writeLines("id,click", subm_con)
 
 t <- 0
 while (length(oneLine <- readLines(test_con, n = 1, warn = FALSE)) > 0) {
@@ -86,7 +86,7 @@ while (length(oneLine <- readLines(test_con, n = 1, warn = FALSE)) > 0) {
   x <- sapply( c(d,h,tmp), hash)
   p <- predict(x)  
   
-  writeLines(sprintf("%s , %f", ID, p), subm_con) 
+  writeLines(sprintf("%s,%f", ID, p), subm_con) 
   t <- t + 1
 }
 
