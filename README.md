@@ -32,3 +32,12 @@ http://www.kaggle.com/c/avazu-ctr-prediction/forums/t/10927/beat-the-benchmark-w
 * run the program avazu-ctr-train-predict.R
 
 I got a score of 0.3981133
+
+##Comments on my experiences with R
+
+Reading and writing files is extremely slow in R. In python reading the file must be must faster at least in comparison to R. In the python Implementation from above uses for "t, row in enumerate(DictReader(open(path))):" which is a realy nice construct.
+
+I also tried parallelization using doSnow and foreach. After some tests I came to the conclusion that it would speedup the training.
+
+so at last I implemented a random Sample while reading the train file in order to get result in time (< 4h). predicting the data in the test file took also quite long because of slow reading and writing in R
+
