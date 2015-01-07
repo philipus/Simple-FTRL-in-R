@@ -27,7 +27,7 @@ http://www.kaggle.com/c/avazu-ctr-prediction/forums/t/10927/beat-the-benchmark-w
 ## introduction
 
 * "mkdir data" in the directory where the R-Files are
-* download the data from kaggle webpage http://www.kaggle.com/c/avazu-ctr-prediction/data
+* download the data from kaggle webpage http://www.kaggle.com/c/avazu-ctr-prediction/data into the data directory
 * gunzip train.gz and test.gz
 * run the program avazu-ctr-train-predict.R
 
