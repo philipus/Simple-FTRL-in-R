@@ -36,8 +36,8 @@ library(ff)
 setwd("C:/Users/Filip/coursera/data science/kaggle ctr/");
 
 #
-nRows <- 100000
-mRows <- 50000
+nRows <- 1000000
+mRows <- 1000000
 
 train_colcl <- vector(mode="character", length=24)
 train_colcl[1] <- "factor"
@@ -46,7 +46,7 @@ train_colcl[3:24] <- "factor"
 
 train_data <- read.csv.ffdf(file="./data/train",header=TRUE,
                           VERBOSE=TRUE,nrows=nRows, first.rows=mRows,next.rows=mRows,colClasses=train_colcl)
-nameVector <- names(train)
+nameVector <- names(train_data)
 
 loss <<- 0
 count = 0
@@ -96,8 +96,8 @@ system.time(
   
 print(sprintf("%f %s", loss/count, as.character(Sys.time() - start) ))
 
-nRows <- 50000
-mRows <- 10000
+nRows <- 50
+mRows <- 10
 
 test_colcl <- train_colcl[c(1,3:24)]
 test_data <- read.csv.ffdf(file="./data/test",header=TRUE,
@@ -127,7 +127,7 @@ system.time(
       x[2] <- hash(paste("hour_",substr(test[i,2],7,8),sep=""))
       x[3:23] <- sapply(paste(nameVecTest[3:23],"_", test[i,3:23],sep=""),hash)
       # x <- sapply(c(d,h,tmp),hash)
-      
+      print(x)
       p <- predict(x)
       writeLines(sprintf("%s,%f", ID, p), subm_con) 
       if (t %% 25000 == 0 && t >= 1){
